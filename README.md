@@ -29,20 +29,20 @@ sgdkx blastem out/rom.bin      # run in BlastEm
 
 ## Commands
 
-| Command                                                | Description                                                                                                                                                                                         |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sgdkx install [-s/--sgdk <ver>] [-b/--blastem <ver>]` | Install/update the environment (SGDK, toolchain, JRE, gdb, BlastEm). Idempotent — re-run to update. Omitted versions prompt on a terminal, use latest when non-interactive.                         |
-| `sgdkx new <name> [-t/--template <path>]`              | Scaffold a project from an SGDK sample (e.g. `basics/hello-world`). Prompts for a template on a terminal; `--template` is required when non-interactive.                                            |
-| `sgdkx make [args...]`                                 | Thin wrapper around `make` (args passed straight through, e.g. `debug`, `clean`). Sets `GDK` and prepends the SGDK build tools to `PATH`. |
-| `sgdkx blastem [args...]`                              | Run the bundled BlastEm (e.g. `sgdkx blastem out/rom.bin`).                                                                                                                                         |
-| `sgdkx gdb [args...]`                                  | Run `m68k-elf-gdb` (args passed straight through, e.g. `sgdkx gdb out/rom.out`).                                                                                                                    |
-| `sgdkx compile-commands [-p/--path <dir>]`             | Regenerate `compile_commands.json` (for clangd / IDEs) after adding or removing source files.                                                                                                       |
-| `sgdkx doc`                                            | Open the SGDK documentation in your browser.                                                                                                                                                        |
-| `sgdkx open`                                           | Open the installation directory.                                                                                                                                                                    |
-| `sgdkx uninstall [-y/--yes]`                           | Remove the environment and configuration. `--yes` skips the confirmation (required when non-interactive).                                                                                           |
-| `sgdkx`                                                | Environment check + configuration (the `doctor` default).                                                                                                                                           |
+| Command                                                | Description                                                                                                                                                                 |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sgdkx install [-s/--sgdk <ver>] [-b/--blastem <ver>]` | Install/update the environment (SGDK, toolchain, JRE, gdb, BlastEm). Idempotent — re-run to update. Omitted versions prompt on a terminal, use latest when non-interactive. |
+| `sgdkx new <name> [-t/--template <path>]`              | Scaffold a project from an SGDK sample (e.g. `basics/hello-world`). Prompts for a template on a terminal; `--template` is required when non-interactive.                    |
+| `sgdkx make [args...]`                                 | Thin wrapper around `make` (args passed straight through, e.g. `debug`, `clean`). Sets `GDK` and prepends the SGDK build tools to `PATH`.                                   |
+| `sgdkx blastem [args...]`                              | Run the bundled BlastEm (e.g. `sgdkx blastem out/rom.bin`).                                                                                                                 |
+| `sgdkx gdb [args...]`                                  | Run `m68k-elf-gdb` (args passed straight through, e.g. `sgdkx gdb out/rom.out`).                                                                                            |
+| `sgdkx compile-commands [-p/--path <dir>]`             | Regenerate `compile_commands.json` (for clangd / IDEs) after adding or removing source files.                                                                               |
+| `sgdkx doc`                                            | Open the SGDK documentation in your browser.                                                                                                                                |
+| `sgdkx open`                                           | Open the installation directory.                                                                                                                                            |
+| `sgdkx uninstall [-y/--yes]`                           | Remove the environment and configuration. `--yes` skips the confirmation (required when non-interactive).                                                                   |
+| `sgdkx`                                                | Environment check + configuration (the `doctor` default).                                                                                                                   |
 
-`compile_commands.json` is generated automatically by `sgdkx new`; run `sgdkx compile-commands` to refresh it later (it parses `make -nwB` output — no external `compiledb`).
+`compile_commands.json` is generated automatically by `sgdkx new`; run `sgdkx compile-commands` to refresh it later.
 
 The environment and `config.toml` live under `~/.sgdkx/data` (the same on macOS, Linux, and Windows; shown by `sgdkx` / `sgdkx open`).
 
